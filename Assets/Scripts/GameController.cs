@@ -8,10 +8,11 @@ using System.IO;
 using System.IO.Ports;
 
 public class Cor {
-	public static Cor amarelo = new Cor("amarelo", 449,344,751,582,265,203,764,537, Color.yellow, 20);
-	public static Cor azul = new Cor("azul", 592,424,837,654,291,224,645,522, Color.blue, 20);
-	public static Cor verde = new Cor("verde", 738,641,916,876,351,332,859,810, Color.green, 20);
-	public static Cor vermelho = new Cor("vermelho", 430,400,827,796,286,264,708,676, Color.red, 60);
+	public static Cor amarelo = new Cor("amarelo", 1895,1420,2411,1902,680,550,2172,1898, Color.yellow, 20);
+	public static Cor azul = new Cor("azul", 3077,2661,3379,2603,890,684,2307,1590, Color.blue, 20);
+	public static Cor verde = new Cor("verde", 2597,2242,2705,2171,784,650,2275,1934, Color.green, 20);
+	public static Cor vermelho = new Cor("vermelho", 2065,1437,3128,2600,781,614,2294,1920, Color.red, 60);
+	public static Cor rosa = new Cor("rosa", 1889,1308,2290,1624,604,430,1632,1111, Color.magenta, 20);
 
 	private int max_r, min_r;
 	private int max_g, min_g;
@@ -86,7 +87,13 @@ public class GameController : MonoBehaviour
         string receivedString = serial.ReadLine();
 		RGBdata data = JsonUtility.FromJson<RGBdata>(receivedString);
 
-		if ( Cor.vermelho.Check(data) ) {
+		if ( Cor.rosa.Check(data) ) {
+			if (once) {
+				once = false;
+				order.Add( Cor.rosa );
+			}
+		}
+		else if ( Cor.vermelho.Check(data) ) {
 			if (once) {
 				once = false;
 				order.Add( Cor.vermelho );
@@ -114,12 +121,8 @@ public class GameController : MonoBehaviour
 			once = true;
 		}
 
-		if (once == true) {
-			for (int i = 0; i < order.Count; i++) {
-				ordGameObject[i].color = order[i].rgb;
-			}
-
-			Debug.Log( order[ order.Count-1 ].cor );
+		for (int i = 0; i < order.Count; i++) {
+			ordGameObject[i].color = order[i].rgb;
 		}
 
     }
