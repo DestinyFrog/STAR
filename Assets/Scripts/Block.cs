@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	private Vector2 initialPosition;
+	[SerializeField] public int order;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void Awake() {
+		initialPosition = new Vector2(GetComponent<RectTransform>().anchoredPosition.x, GetComponent<RectTransform>().anchoredPosition.y);
+	}
+
+	public void resetPosition() {
+		GetComponent<RectTransform>().anchoredPosition = initialPosition;
+	}
 }

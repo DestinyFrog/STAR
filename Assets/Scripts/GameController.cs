@@ -9,7 +9,7 @@ using System.IO.Ports;
 
 public class GameController : MonoBehaviour
 {
-	private bool once = true;
+	// private bool once = true;
 	private SerialPort serial = new SerialPort("COM4", 9600);
 
 	private List<GameObject> currentList = new List<GameObject>();
@@ -28,49 +28,9 @@ public class GameController : MonoBehaviour
         serial.Open();
     }
 
-    // Update is called once per frame
-    void Update() {
-        string receivedString = serial.ReadLine();
-		RGBdata data = RGBdata.fromJson(receivedString);
-
-		if ( Cor.rosa.Check(data) && !currentList.Contains(pinkObject) ) {
-			if (once) {
-				once = false;
-				currentList.Add( pinkObject );
-				UpdateList();
-			}
-		}
-		else if ( Cor.vermelho.Check(data) && !currentList.Contains(redObject) ) {
-			if (once) {
-				once = false;
-				currentList.Add( redObject );
-				UpdateList();
-			}
-		}
-		else if ( Cor.amarelo.Check(data) && !currentList.Contains(yellowObject) ) {
-			if (once) {
-				once = false;
-				currentList.Add( yellowObject );
-				UpdateList();
-			}
-		}
-		else if ( Cor.azul.Check(data) && !currentList.Contains(blueObject) ) {
-			if (once) {
-				once = false;
-				currentList.Add( blueObject );
-				UpdateList();
-			}
-		}
-		else if ( Cor.verde.Check(data) && !currentList.Contains(greenObject) ) {
-			if (once) {
-				once = false;
-				currentList.Add( greenObject );
-				UpdateList();
-			}
-		}
-		else {
-			once = true;
-		}
+	public void Add(GameObject obj) {
+		currentList.Add(obj);
+		UpdateList();
 	}
 
 	void UpdateList() {

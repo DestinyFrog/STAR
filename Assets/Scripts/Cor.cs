@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cor {
-	public static Cor amarelo = new Cor("amarelo", 1895,1420,2411,1902,680,550,2172,1898, Color.yellow, 20);
-	public static Cor azul = new Cor("azul", 3077,2661,3379,2603,890,684,2307,1590, Color.blue, 20);
-	public static Cor verde = new Cor("verde", 2597,2242,2705,2171,784,650,2275,1934, Color.green, 20);
-	public static Cor vermelho = new Cor("vermelho", 2065,1437,3128,2600,781,614,2294,1920, Color.red, 60);
-	public static Cor rosa = new Cor("rosa", 1889,1308,2290,1624,604,430,1632,1111, Color.magenta, 20);
+	public static Cor amarelo = new Cor("amarelo", 1683,250,2353,385,645,121,2156,602, Color.yellow, 20);
+	public static Cor azul = new Cor("azul", 2301,1643,2994,1704,749,417,2090,883, Color.blue, 20);
+	public static Cor verde = new Cor("verde", 2172,749,2736,791,745,267,2249,921, Color.green, 20);
+	public static Cor vermelho = new Cor("vermelho", 1878,473,3175,1339,766,268,2279,923, Color.red, 60);
+	public static Cor branco = new Cor("branco", 1538,146,1824,165,504,41,1397,124, Color.white, 20);
 
 	private int max_r, min_r;
 	private int max_g, min_g;

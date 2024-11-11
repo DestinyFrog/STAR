@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Menu.unity
+    guid: 3e37bc9aeb8726f4a9a9dc5fe3b39ded
+  - enabled: 1
+    path: Assets/Scenes/FaseSubmarino.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/FaseFoguete.unity
+    guid: e57488d43256b464fabf00926f1c2e76
+  - enabled: 1
+    path: Assets/Scenes/FaseAviao.unity
+    guid: d671eff79a255b946824606a93c2fa4a
+  - enabled: 1
+    path: Assets/Scenes/FaseTrem.unity
+    guid: edd679e80bfedeb4184926e035acedc3
   m_configObjects: {}
