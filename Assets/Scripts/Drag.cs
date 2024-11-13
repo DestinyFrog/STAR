@@ -19,9 +19,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 	public void OnBeginDrag(PointerEventData eventData) {
 		canvasGroup.blocksRaycasts = false;
 		canvasGroup.alpha = .6f;
-
-		if (into)
-			into.Clear();
+		into = null;
 	}
 
 	// Move o objeto seguindo o movimento do mouse durante o arraste

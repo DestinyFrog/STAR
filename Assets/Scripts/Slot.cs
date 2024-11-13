@@ -13,6 +13,10 @@ public class Slot : MonoBehaviour, IDropHandler
 		if (eventData.pointerDrag != null) {
 			eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = gameObject.GetComponent<RectTransform>().anchoredPosition;
 			setOrder( eventData.pointerDrag.GetComponent<Block>() );
+
+			if(eventData.pointerDrag.GetComponent<Drag>().into)
+				eventData.pointerDrag.GetComponent<Drag>().into.Clear();
+			
 			eventData.pointerDrag.GetComponent<Drag>().into = GetComponent<Slot>();
 		}
 	}
