@@ -15,6 +15,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 		canvasGroup = gameObject.GetComponent<CanvasGroup>();
 	}
 
+	// Configura o objeto para o início do arraste: torna parcialmente transparente e permite a detecção de colisões
 	public void OnBeginDrag(PointerEventData eventData) {
 		canvasGroup.blocksRaycasts = false;
 		canvasGroup.alpha = .6f;
@@ -23,10 +24,12 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 			into.Clear();
 	}
 
+	// Move o objeto seguindo o movimento do mouse durante o arraste
 	public void OnDrag(PointerEventData eventData) {
 		rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;	
 	}
 
+	// Finaliza movimento do objeto
 	public void OnEndDrag(PointerEventData eventData) {
 		canvasGroup.blocksRaycasts = true;
 		canvasGroup.alpha = 1f;

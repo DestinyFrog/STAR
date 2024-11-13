@@ -6,19 +6,21 @@ using UnityEngine;
 public class BlocksController : MonoBehaviour
 {
     [SerializeField] public List<Block> blocksOrder = new List<Block>();
-	[SerializeField] public int length = 4;
+	[SerializeField] public int blocksLength = 4;
 
 	void Awake() {
 		ClearList();
 	}
 
+	// Limpa e reinicializa a lista de blocos, preenchendo com valores nulos até o comprimento desejado
 	void ClearList() {
 		blocksOrder.Clear();
-		for(int i=0; i<length; i++) {
+		for(int i=0; i<blocksLength; i++) {
 			blocksOrder.Add(null);
 		}
 	}
 
+	// Define o bloco no slot especificado e verifica se a lista está completa
 	public int SetBlock(Slot slot, Block block) {
 		blocksOrder[slot.order] = block;
 
@@ -36,10 +38,13 @@ public class BlocksController : MonoBehaviour
 		return slot.order;
 	}
 
+	// TODO 
+	// Remove o bloco da lista 
 	public void RemoveBlock(Block block) {
 		Debug.Log("remove block");
 	}
 
+	// Verifica se todos os blocos estão na ordem correta
 	public void Verify() {
 		int last = -1;
 		foreach (var block in blocksOrder) {
@@ -52,10 +57,13 @@ public class BlocksController : MonoBehaviour
 		Successfull();
 	}
 
+	// TODO
+	// Conclui a tarefa
 	public void Successfull() {
 		Debug.Log("successful");
 	}
 
+	// Reinicia a posição de todos os blocos e limpa a lista quando a ordem está incorreta
 	public void Wrong() {
 		foreach (var block in blocksOrder) {
 			block.resetPosition();
