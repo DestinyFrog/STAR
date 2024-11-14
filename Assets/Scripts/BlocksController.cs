@@ -7,6 +7,7 @@ public class BlocksController : MonoBehaviour
 {
     [SerializeField] public List<Block> blocksOrder = new List<Block>();
 	[SerializeField] public int blocksLength = 4;
+	[SerializeField] public Train train;
 
 	void Awake() {
 		ClearList();
@@ -60,7 +61,7 @@ public class BlocksController : MonoBehaviour
 	// TODO
 	// Conclui a tarefa
 	public void Successfull() {
-		Debug.Log("successful");
+		train.PlaySuccessAnimation();
 	}
 
 	// Reinicia a posição de todos os blocos e limpa a lista quando a ordem está incorreta
